@@ -1,20 +1,14 @@
-function kaliTerusRekursif(angka) {
-    if(angka < 10) {
-        return angka;
-    } else {
-        var strAngka = String(angka);
-        var calculation = 1;
-        for(var i = 0; i < strAngka.length; i++) {
-            calculation *= strAngka[i];
-        }
-        return kaliTerusRekursif(calculation);
-    }
+function attack (damage) {
+    return damage - 2;
 }
 
-// TEST CASES
-console.log(kaliTerusRekursif(66)); // 8
-console.log(kaliTerusRekursif(66)); // 8
-console.log(kaliTerusRekursif(3)); // 3
-console.log(kaliTerusRekursif(24)); // 8
-console.log(kaliTerusRekursif(654)); // 0
-console.log(kaliTerusRekursif(1231)); // 6
+function damageCalculation (numberOfAttacks, damagePerAttack) {
+    return numberOfAttacks * attack(damagePerAttack);
+}
+
+// TEST CASE
+console.log(damageCalculation(9, 25)); // 207
+
+console.log(damageCalculation(10, 4)); // 20
+
+console.log(damageCalculation(5, 20)); // 90
