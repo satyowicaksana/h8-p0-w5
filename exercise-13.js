@@ -1,5 +1,18 @@
 function sorting(arrNumber) {
-    return arrNumber.sort();
+    var sorted = false;
+    while(!sorted) {
+        sorted = true;
+        for(var i = 0; i < arrNumber.length - 1; i++) {
+            if(arrNumber[i] < arrNumber[i + 1]) {
+                var temp = arrNumber[i];
+                arrNumber[i] = arrNumber[i + 1];
+                arrNumber[i + 1] = temp;
+                sorted = false;
+            }
+        }
+    }
+    
+    return arrNumber;
 }
 
 function getTotal(arrNumber) {
@@ -7,12 +20,12 @@ function getTotal(arrNumber) {
         return '';
     }
 
-    var highestNumber = arrNumber[arrNumber.length - 1];
+    var highestNumber = arrNumber[0];
     var highestNumberCount = 1;
-    for(var i = arrNumber.length - 2; i >= 0; i--) {
-        if(arrNumber[i] === highestNumber) {
-           highestNumberCount += 1;
-        }
+    var i = 1;
+    while(arrNumber[i] === highestNumber) {
+        highestNumberCount++;
+        i++;
     }
     
     return 'angka paling besar adalah ' + highestNumber +
